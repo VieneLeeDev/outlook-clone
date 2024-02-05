@@ -1,0 +1,11 @@
+@use './utils/variables';
+@import './utils/mixins';
+
+.container__component__custome {
+    width: 100%;
+    height: auto;
+    padding: 10px 0 11px 16px;
+    &__items {
+        display: flex;
+    }
+}

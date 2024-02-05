@@ -1,0 +1,9 @@
+@use '../utils/variables';
+@import '../utils/mixins';
+
+.container__changelog {
+    @include fullEmptyPlace;
+    &__title {
+        @include styleTitlePage;
+    }
+}

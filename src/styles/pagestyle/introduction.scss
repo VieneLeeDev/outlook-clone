@@ -1,0 +1,63 @@
+@use '../utils/variables';
+@import '../utils/mixins';
+
+.container__introduction{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    .logo_img {
+        width: 133px;
+        height: 133px;
+        object-fit: cover;
+    }
+    .container__introduction__content {
+        &__title {
+            display: flex;
+            flex-flow: column;
+            width: auto;
+            height: auto;
+            box-sizing: border-box;
+            margin-top: 40px;
+            margin-bottom: 8px;
+            &--maintitle {
+                font-weight: 400;
+                margin: 0;
+                font-size: 32px;
+                color: rgb(23, 29, 36)
+            }
+            &--descriptiontitle {
+                color: rgb(50, 62, 77);
+            }
+            a {
+                text-decoration: underline;
+            }
+            &__browsersupport {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+                box-sizing: border-box;
+                .item__browser,td {
+                    border: 1px solid rgb(242, 243, 244);
+                    border-collapse: collapse;
+                    padding: 8px;
+                    &__logo {
+                        width: 32px;
+                        height: 32px;
+                        object-fit: cover;
+                    }
+                    &__name {
+                        display: block;
+                        margin-top: 5px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: rgb(50, 62, 77);
+                    }
+                }
+            }
+        }
+    }
+}
+.decorator {
+    color: #DD4A68;
+    white-space: pre-wrap;
+}

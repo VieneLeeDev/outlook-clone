@@ -1,0 +1,9 @@
+@use './utils/variables';
+@import './utils/mixins';
+
+.container__codeblock {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgb(242, 243, 244);
+    padding: 8px;
+}

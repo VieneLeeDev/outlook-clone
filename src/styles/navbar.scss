@@ -1,0 +1,36 @@
+@use './utils/variables';
+@import './utils/mixins';
+
+.container__navbar {
+    overflow: hidden;
+    width: $width-navbar;
+    height: 100%;
+    padding: 16px;
+    border-right: 1px solid rgb(242, 243, 244);
+    &__linkbox {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 24px;
+        margin-bottom: 8px;
+       &__title {
+            font-size: 14px;
+            padding: 4px 0 3px;
+            color: rgb(121, 121, 121);
+            border-bottom: 1px solid rgb(242, 243, 244);
+       }
+       &__listlink {
+        &__mainlink {
+            display: block;
+            padding:11px 0 10px 16px;
+            font-size: 14px;
+            color:rgb(121, 121, 121);
+         &:hover {
+            color: #646cff;
+        }
+       }
+    }
+    }
+    &:hover {
+        overflow: scroll;
+    }
+}
