@@ -1,0 +1,38 @@
+@use "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.breadcrumb{
+    @include fullEmptyPlace;
+        &__content{
+            &__title {
+                display: flex;
+                flex-flow: column;
+                width: auto;
+                height: auto;
+                box-sizing: border-box;
+                margin-top: 40px;
+                margin-bottom: 8px;
+                a {
+                    text-decoration: underline;
+                }
+                &--maintitle {
+                   @include styleTitlePage
+                }
+                &--subtitle {
+                    @include subTitle 
+                 }
+                &--descriptiontitle {
+                    color: rgb(50, 62, 77);
+                }
+                ul {
+                    font-size: 12px;
+                    line-height: 20px;
+                    
+                }
+                ul li::marker{
+                    content: "- ";
+                }
+            }
+        }
+        
+}

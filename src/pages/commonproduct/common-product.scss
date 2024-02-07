@@ -1,0 +1,22 @@
+@use "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.commonproduct{
+    @include fullEmptyPlace;
+        &__content{
+            &__title {
+                display: flex;
+                flex-flow: column;
+                width: auto;
+                height: auto;
+                box-sizing: border-box;
+                &--maintitle {
+                   @include styleTitlePage
+                }
+                &--subtitle {
+                    @include subTitle 
+                 }
+            }
+        }
+        
+}

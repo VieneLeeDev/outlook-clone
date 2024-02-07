@@ -20,11 +20,11 @@
             margin-top: 40px;
             margin-bottom: 8px;
             &--maintitle {
-                font-weight: 400;
-                margin: 0;
-                font-size: 32px;
-                color: rgb(23, 29, 36)
+               @include styleTitlePage
             }
+            &--subtitle {
+                @include subTitle 
+             }
             &--descriptiontitle {
                 color: rgb(50, 62, 77);
             }
@@ -56,8 +56,4 @@
             }
         }
     }
-}
-.decorator {
-    color: #DD4A68;
-    white-space: pre-wrap;
 }

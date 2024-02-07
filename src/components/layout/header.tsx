@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 import * as React from "react";
 import { Stack, Dropdown, ISearchBoxStyles, SearchBox,  IDropdownStyles, useTheme, IExtendedPalette, DefaultButton, IButtonStyles } from "@gui/fluent-ui-allure";
 
-const optionsLanguages = [
+export const optionsLanguages = [
     { text: "English", key: "0" },
     { text: "German", key: "1" },
     { text: "French", key: "2" },
@@ -46,12 +46,14 @@ const buttonStyle: IButtonStyles = {
 const Header = () => {
     const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { height: 32 }, box: { width: 240 } };
     const palette = useTheme().palette as IExtendedPalette;
+    const [selectedKeyLanguages, setSelectedKeyLanguages] = React.useState<string>();
     const [selectedKey, setSelectedKey] = React.useState<string>();
-    const [key, setKey] = React.useState<number>(new Date().getTime());
+    const [keyLanguages, setKeyLanguages] = React.useState<number>(new Date().getTime());
+    const [keyThemes, setKeyThemes] = React.useState<number>(new Date().getTime());
 
     const style: React.CSSProperties = { letterSpacing: "-0.21px", color: palette.slate, textAlign: "left", fontWeight: "normal" };
     return <section className='container__header'>
-        <div className='container__header__logo'>
+    <div className='container__header__logo'>
             <span className='container__header__logo__main'>
                 <img src={logo} alt='Logo Allure'/>
                 <span>Allure UI</span>
@@ -61,21 +63,22 @@ const Header = () => {
                     <SearchBox styles={searchBoxStyles} showIcon placeholder="Type search keyword" />
                 </Stack>
             </Stack>
-        </div>
-        <Stack horizontal tokens={{ childrenGap: 16 }}>
+    </div>
+    <Stack horizontal tokens={{ childrenGap: 16 }}>
         <Stack horizontal>
             <Dropdown
                 options={optionsLanguages}
-                key={key}
+                defaultSelectedKey={optionsLanguages[0].key}
+                key={keyLanguages}
                 styles={dropdownStyles}
-                selectedKey={selectedKey}
+                selectedKey={selectedKeyLanguages}
                 onRenderItem={(option) => (
                     <div>
                         <DefaultButton
                             styles={buttonStyle}
-                            onClick={(e) => {
-                                setSelectedKey(option?.data?.type === "Clear" ? undefined : option?.key.toString());
-                                setKey(new Date().getTime());
+                            onClick={() => {
+                                setSelectedKeyLanguages(option?.data?.type === "Clear" ? undefined : option?.key.toString());
+                                setKeyLanguages(new Date().getTime());
                             }}
                         >
                             <div style={{ ...style, fontStyle: option?.data?.type === "Clear" ? "italic" : "normal" }}>{option?.text}</div>
@@ -87,16 +90,17 @@ const Header = () => {
         <Stack horizontal>
             <Dropdown
                 options={optionsThemes}
-                key={key}
+                defaultSelectedKey={optionsThemes[0].key}
+                key={keyThemes}
                 styles={dropdownStyles}
                 selectedKey={selectedKey}
                 onRenderItem={(option) => (
                     <div>
                         <DefaultButton
                             styles={buttonStyle}
-                            onClick={(e) => {
+                            onClick={() => {
                                 setSelectedKey(option?.data?.type === "Clear" ? undefined : option?.key.toString());
-                                setKey(new Date().getTime());
+                                setKeyThemes(new Date().getTime());
                             }}
                         >
                             <div style={{ ...style, fontStyle: option?.data?.type === "Clear" ? "italic" : "normal" }}>{option?.text}</div>
@@ -105,8 +109,7 @@ const Header = () => {
                 )}
             />
         </Stack>
-        </Stack>
-        
+    </Stack>
     </section>
 }
 export default Header

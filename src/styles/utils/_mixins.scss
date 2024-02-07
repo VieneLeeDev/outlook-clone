@@ -33,5 +33,17 @@
     margin-bottom: 10px;
     display: inline-block;
     font-size: 32px;
-    color: $titlePageColor
+    color: $titlePageColor;
+    font-weight: 400;
+    margin: 0;
+    color: rgb(23, 29, 36)
+}
+@mixin subTitle {
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 22px;
+    color: $titlePageColor;
+    font-weight: 400;
+    margin: 0;
+    color: rgb(23, 29, 36)
 }

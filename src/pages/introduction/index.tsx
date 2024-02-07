@@ -26,12 +26,12 @@ return (
                 <p className='container__introduction__content__title--descriptiontitle'>This Allure design system contains both style and interaction guideline which can be applied to the online products of AvePoint. It can help us to build a consistency user experience for AvePoint customers.</p>
             </article>
             <article className='container__introduction__content__title'>
-                <h2 className='container__introduction__content__title--maintitle'>WCAG2.0 supported</h2>
+                <h2 className='container__introduction__content__title--subtitle'>WCAG2.0 supported</h2>
                 <p className='container__introduction__content__title--descriptiontitle'>Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations for making Web content more accessible. Following these guidelines will make content accessible to a wider range of people with disabilities, including blindness and low vision, deafness and hearing loss, learning disabilities, cognitive limitations, limited movement, speech disabilities, photosensitivity and combinations of these. Following these guidelines will also often make your Web content more usable to users in general.</p>
                 <Link className='container__introduction__content__title--link' to={"https://www.w3.org/TR/WCAG20/"} >WCAG 2 Overview</Link>
             </article>
             <article className='container__introduction__content__title'>
-                <h2 className='container__introduction__content__title--maintitle'>Environment Support</h2>
+                <h2 className='container__introduction__content__title--subtitle'>Environment Support</h2>
                 <table className='container__introduction__content__title__browsersupport'>
                     <tbody className='container__introduction__content__title__browsersupport'>
                         <tr>
@@ -72,7 +72,7 @@ return (
                 </table>
             </article>
             <article className='container__introduction__content__title'>
-                <h2 className='container__introduction__content__title--maintitle'>Installation</h2>
+                <h2 className='container__introduction__content__title--subtitle'>Installation</h2>
                 <p className='container__introduction__content__title--descriptiontitle'>Since Allure UI is hosted on the feed <Link className='container__introduction__content__title--link' to={"https://www.w3.org/TR/WCAG20/"} >avepoint-npm</Link> of Proget, you should create a .npmrc file under the root folder of your UI project.</p>
                 <div className='container__introduction__content__title--copytext'>
                     <CodeBlock>{`@gui:registry=https://proget.avepoint.net/npm/avepoint-npm/
@@ -85,7 +85,7 @@ registry=https://proget.avepoint.net/npm/npm.org/`}
                 </div>
             </article>
             <article className='container__introduction__content__title'>
-                <h2 className='container__introduction__content__title--maintitle'>Usage</h2>
+                <h2 className='container__introduction__content__title--subtitle'>Usage</h2>
                 <p className='container__introduction__content__title--descriptiontitle'>In the root file of your React App, import Allure UI and set the corresponding theme and language.</p>
                         <CodeBlock>{codeStringUsage}</CodeBlock>
             </article>

@@ -14,18 +14,18 @@ const Navbar = () => {
         <div className='container__navbar__linkbox'>
             <span className='container__navbar__linkbox__title'>Basic</span>
             <div className='container__navbar__linkbox__listlink'>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Button</Link>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Icon Gallery</Link>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Icon</Link>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Common I18N Terms</Link>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Common Product</Link>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Typography</Link>
+                <Link to="button" className='container__navbar__linkbox__listlink__mainlink'>Button</Link>
+                <Link to="icon_gallery" className='container__navbar__linkbox__listlink__mainlink'>Icon Gallery</Link>
+                <Link to="icon" className='container__navbar__linkbox__listlink__mainlink'>Icon</Link>
+                <Link to="common-i18n-terms" className='container__navbar__linkbox__listlink__mainlink'>Common I18N Terms</Link>
+                <Link to="common-product" className='container__navbar__linkbox__listlink__mainlink'>Common Product</Link>
+                <Link to="typography" className='container__navbar__linkbox__listlink__mainlink'>Typography</Link>
             </div>
         </div> 
         <div className='container__navbar__linkbox'>
             <span className='container__navbar__linkbox__title'>Navigation</span>
             <div className='container__navbar__linkbox__listlink'>
-                <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Breadcrumb</Link>
+                <Link to="breadcrumb" className='container__navbar__linkbox__listlink__mainlink'>Breadcrumb</Link>
                 <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Navigation Menu</Link>
                 <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Tab</Link>
                 <Link to="#" className='container__navbar__linkbox__listlink__mainlink'>Tree</Link>
