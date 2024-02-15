@@ -58,3 +58,217 @@ export const router = createBrowserRouter([
     ]
 }
 ])
+
+export const routes = [
+{
+    parent:"Allure DeSign System",
+    children: [
+        {
+            path:"/",
+            name:"Introduction",
+        },
+        {
+            path:"design-principle",
+            name:"Design principle",
+        },
+        {
+            path:"https://xd.adobe.com/view/34543319-c6da-4dd9-be05-fe7b01ae133b-6107/",
+            name:"Design principle",
+        },
+        {
+            path:"change-log",
+            name:"Change log",
+        },
+    ]
+},
+{
+    parent:"Basic",
+    children: [
+        {
+            path:"button",
+            name:"Button",
+        },
+        {
+            path:"icon_gallery",
+            name:"Icon Gallery",
+        },
+        {
+            path:"icon",
+            name:"Icon",
+        },
+        {
+            path:"common-i18n-terms",
+            name:"Common I18N Terms",
+        },
+        {
+            path:"common-product",
+            name:"Common Product",
+        },
+        {
+            path:"typography",
+            name:"Typography",
+        },
+    ]
+},
+{
+    parent:"Navigation",
+    children: [
+        {
+            path:"breadcrumb",
+            name:"Breadcrumb",
+        },
+        {
+            path:"#",
+            name:"Navigation Menu",
+        },
+        {
+            path:"#",
+            name:"Tab",
+        },
+        {
+            path:"#",
+            name:"Tree",
+        },
+        {
+            path:"#",
+            name:"Wizard",
+        },
+        {
+            path:"typography",
+            name:"Typography",
+        },
+    ]
+},
+{
+    parent:"Form",
+    children: [
+        {
+            path:"#",
+            name:"AutoComplete",
+        },
+        {
+            path:"#",
+            name:"Avatar",
+        },
+        {
+            path:"#",
+            name:"Checkbox",
+        },
+        {
+            path:"#",
+            name:"DatePicker",
+        },
+        {
+            path:"#",
+            name:"Expander",
+        },
+        {
+            path:"#",
+            name:"FileUploader",
+        },
+        {
+            path:"#",
+            name:"Input",
+        },
+        {
+            path:"#",
+            name:"Rich textbox",
+        },
+        {
+            path:"#",
+            name:"Radio button",
+        },
+        {
+            path:"#",
+            name:"Switch",
+        },
+        {
+            path:"#",
+            name:"TimePicker",
+        },
+        {
+            path:"#",
+            name:"Select",
+        },
+        {
+            path:"#",
+            name:"Select",
+        },
+    ]
+},
+{
+    parent:"Data",
+    children: [
+        {
+            path:"#",
+            name:"Calendar",
+        },
+        {
+            path:"#",
+            name:"Carousel",
+        },
+        {
+            path:"#",
+            name:"Filters",
+        },
+        {
+            path:"#",
+            name:"Table",
+        },
+        {
+            path:"#",
+            name:"Tooltips",
+        },
+    ]
+},
+{
+    parent:"Feedback",
+    children: [
+        {
+            path:"#",
+            name:"Message",
+        },
+        {
+            path:"#",
+            name:"Notification",
+        },
+    ]
+},
+{
+    parent:"Others",
+    children: [
+        {
+            path:"#",
+            name:"Dialog",
+        },
+        {
+            path:"#",
+            name:"Modal",
+        },
+        {
+            path:"#",
+            name:"Loading",
+        },
+        {
+            path:"#",
+            name:"Panel",
+        },
+        {
+            path:"#",
+            name:"Popover",
+        },
+        {
+            path:"#",
+            name:"Progress",
+        },
+        {
+            path:"#",
+            name:"Waffle",
+        },
+        {
+            path:"#",
+            name:"Activity timeline",
+        },
+    ]
+},
+]

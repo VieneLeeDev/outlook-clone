@@ -107,14 +107,14 @@ const Icongallery = () => {
                         </PivotItem>
                 </Pivot>
                 <Dialog
+                      title={`${modalIcon?.iconName}`}
                       hidden={isModalClosed}
                       onDismiss={() => setModalClosed(true)}
                       dialogContentProps={{ showCloseButton: true, type: DialogType.close }}
-                      title={`${modalIcon?.iconName}`}
                       maxWidth="480px"
                       minWidth="480px"
                 >   
-                    <div style={{ width:"100%", height:"100%" , display:"flex",gap:10}}>
+                    <div style={{display:"flex",gap:20}}>
                         <Icon iconName={modalIcon?.iconName} style={{fontSize:100}}/>
                         <div>
                             <Label style={{ padding: "4px 0" }}>
