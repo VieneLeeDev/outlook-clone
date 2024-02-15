@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { DefaultButton, ISearchBoxStyles, Pivot, PivotItem, SearchBox, Stack,Label } from "@gui/fluent-ui-allure";
 import { Icon, Dialog, DialogType } from '@fluentui/react';
 import {IconGallery, iconAllureFontData, iconFontAwesome, iconFontOffice } from '../../assets/icon';
-import CodeBlock from '../../components/CodeBlock';
-import CodeExample from '../../components/CodeExample';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 const Icongallery = () => {
@@ -42,10 +40,6 @@ const Icongallery = () => {
         setModalClosed(false)
     }
 
-
-    const codeLoading = <CodeBlock>
-    {`<i class="af-avepoint"></i>`}
-</CodeBlock>
     return <section className='icongallery'>
         <section className='content'>
             <article className='content__title'>
@@ -88,7 +82,7 @@ const Icongallery = () => {
                         }}>
                             <section className='content__title__listitem'>
                             {iconAwesomeFont.map((item,index) => 
-                                    <DefaultButton key={index} onClick={() => setModalClosed(false)} style={{width:"100%", height:"100%",padding:5}}> 
+                                    <DefaultButton key={index} onClick={() => handleOpenModal(item)} style={{width:"100%", height:"100%",padding:5}}> 
                                         <Icon iconName={item.iconName} style={{fontSize:30}}/>
                                         <p style={{fontSize:10,whiteSpace:"wrap"}}>{item.iconName}</p>
                                     </DefaultButton>
@@ -104,7 +98,7 @@ const Icongallery = () => {
                         }}>
                              <section className='content__title__listitem'>
                             {iconOfficeFont.map((item,index) => 
-                                    <DefaultButton key={index} onClick={() => setModalClosed(false)} style={{width:"100%", height:"100%",padding:5}}> 
+                                    <DefaultButton key={index} onClick={() => handleOpenModal(item)} style={{width:"100%", height:"100%",padding:5}}> 
                                         <Icon iconName={item.iconName} style={{fontSize:30}}/>
                                         <p style={{fontSize:10,whiteSpace:"wrap"}}>{item.iconName}</p>
                                     </DefaultButton>
