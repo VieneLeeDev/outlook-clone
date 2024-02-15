@@ -1,0 +1,1 @@
+export const allureSelector = (state: any) => state.allure

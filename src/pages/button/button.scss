@@ -1,0 +1,21 @@
+@use "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.container__button {
+    @include fullEmptyPlace;
+    &__content{ 
+        &__title{
+            margin-bottom: 30px;
+            &--maintitle{
+                @include styleTitlePage
+            }
+            &--subtitle{
+                @include subTitle
+            }
+            ul {
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+    }
+}

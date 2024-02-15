@@ -1,11 +1,15 @@
+import './app.scss'
 import { RouterProvider } from 'react-router-dom'
-import './styles/app.scss'
 import { router } from './routers'
-import { ThemeProvider, getAllureTheme, Themes, Language } from '@gui/fluent-ui-allure';
+import { ThemeProvider, getAllureTheme} from '@gui/fluent-ui-allure';
+import { allureSelector } from './store/selector/allureSelector';
+import { useSelector } from 'react-redux';
+import './i18n';
 function App() {
-  return <ThemeProvider theme={getAllureTheme(Themes.Cobalt, Language.EN)}>
-            <RouterProvider router={router} />
-        </ThemeProvider> 
+  const globalState = useSelector(allureSelector)
+  return <ThemeProvider theme={getAllureTheme(globalState.themes, globalState.languages)}>
+  <RouterProvider router={router} />
+</ThemeProvider>
 }
 
 export default App

@@ -1,4 +1,4 @@
-import '../../styles/pagestyle/introduction.scss'
+import './introduction.scss'
 import logo from '../../assets/logo.png'
 import edge from '../../assets/edge.jpg'
 import chrome from '../../assets/chrome.png'

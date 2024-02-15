@@ -1,28 +1,51 @@
-import '../../styles/pagestyle/icongallery.scss' 
+import './icongallery.scss' 
 import React, { useEffect, useState } from "react";
-import { DefaultButton, ISearchBoxStyles, Pivot, PivotItem, SearchBox, Stack } from "@gui/fluent-ui-allure";
-import { IStyleSet, Label,  Icon, Dialog, DialogType } from '@fluentui/react';
-import {IconGallery, iconAllureFontData } from '../../assets/icon';
+import { DefaultButton, ISearchBoxStyles, Pivot, PivotItem, SearchBox, Stack,Label } from "@gui/fluent-ui-allure";
+import { Icon, Dialog, DialogType } from '@fluentui/react';
+import {IconGallery, iconAllureFontData, iconFontAwesome, iconFontOffice } from '../../assets/icon';
+import CodeBlock from '../../components/CodeBlock';
+import CodeExample from '../../components/CodeExample';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 const Icongallery = () => {
     const [isModalClosed, setModalClosed] = useState(true);
     const [iconSearch, setIconSearch] = useState("")
-    const [iconData, setIconData] = useState(iconAllureFontData)
-    const labelStyles: Partial<IStyleSet> = {root: { marginTop: 10 },};
+    const [iconAllureFont, setIconAllureFont] = useState(iconAllureFontData)
+    const [iconAwesomeFont, setIconAwesomeFont] = useState(iconFontAwesome)
+    const [iconOfficeFont, setIconOfficeFont] = useState(iconFontOffice)
+    const [modalIcon, setModalIcon] = useState<IconGallery>()
     const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { height: 40 }, box: { width: "100%"}, iconButton: { top: 4 } };
 
     useEffect(() => {
         if (iconSearch == ""){
-            setIconData(iconAllureFontData)
+            setIconAllureFont(iconAllureFontData)
+            setIconAwesomeFont(iconFontAwesome)
+            setIconOfficeFont(iconFontOffice)
         }
         else {
-            const newArrayIcon: IconGallery[] = iconAllureFontData.filter((item) => item.iconName.includes(iconSearch))
-            setIconData(newArrayIcon)
+            const newArrayIconAllure: IconGallery[] = iconAllureFontData.filter((item) => item.iconName.includes(iconSearch))
+            const newArrayIconAwesome: IconGallery[] = iconFontAwesome.filter((item) => item.iconName.includes(iconSearch))
+            const newArrayIconOffice: IconGallery[] = iconFontOffice.filter((item) => item.iconName.includes(iconSearch))
+            setIconAllureFont(newArrayIconAllure)
+            setIconAwesomeFont(newArrayIconAwesome)
+            setIconOfficeFont(newArrayIconOffice)
+
         }
     },[iconSearch])
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement> | undefined) => {
         e && setIconSearch(e.target.value)
     }
+
+    const handleOpenModal = (iconInformation: IconGallery) => {
+        setModalIcon(iconInformation)
+        setModalClosed(false)
+    }
+
+
+    const codeLoading = <CodeBlock>
+    {`<i class="af-avepoint"></i>`}
+</CodeBlock>
     return <section className='icongallery'>
         <section className='content'>
             <article className='content__title'>
@@ -47,29 +70,78 @@ const Icongallery = () => {
                             'data-title': 'My Files Title',
                         }}>
                             <section className='content__title__listitem'>
-                                {iconData.map((item,index) => 
+                                {iconAllureFont.map((item,index) => <>
+                                    <DefaultButton key={index} onClick={() => handleOpenModal(item)} style={{width:"100%", height:"100%",padding:5}}> 
+                                        <Icon iconName={item.iconName} style={{fontSize:30}}/>
+                                        <p style={{fontSize:10,whiteSpace:"wrap"}}>{item.iconName}</p>
+                                    </DefaultButton>
+                                </>
+                                )}
+                            </section>
+                        </PivotItem>
+                        <PivotItem
+                            style={{gap:10}}
+                            headerText="Font Awesome"
+                            headerButtonProps={{
+                            'data-order': 1,
+                            'data-title': 'My Files Title',
+                        }}>
+                            <section className='content__title__listitem'>
+                            {iconAwesomeFont.map((item,index) => 
                                     <DefaultButton key={index} onClick={() => setModalClosed(false)} style={{width:"100%", height:"100%",padding:5}}> 
                                         <Icon iconName={item.iconName} style={{fontSize:30}}/>
                                         <p style={{fontSize:10,whiteSpace:"wrap"}}>{item.iconName}</p>
                                     </DefaultButton>
                                 )}
                             </section>
-                            <Dialog
-                                hidden={isModalClosed}
-                                onDismiss={() => setModalClosed(true)}
-                                dialogContentProps={{ showCloseButton: true, type: DialogType.close }}
-                                maxWidth="480px"
-                                minWidth="480px"
-                            >
-                            </Dialog>
                         </PivotItem>
-                        <PivotItem headerText="Font Awesome">
-                            <Label styles={labelStyles}></Label>
+                        <PivotItem
+                            style={{gap:10}}
+                            headerText="Office UI Fabric Icons"
+                            headerButtonProps={{
+                            'data-order': 1,
+                            'data-title': 'My Files Title',
+                        }}>
+                             <section className='content__title__listitem'>
+                            {iconOfficeFont.map((item,index) => 
+                                    <DefaultButton key={index} onClick={() => setModalClosed(false)} style={{width:"100%", height:"100%",padding:5}}> 
+                                        <Icon iconName={item.iconName} style={{fontSize:30}}/>
+                                        <p style={{fontSize:10,whiteSpace:"wrap"}}>{item.iconName}</p>
+                                    </DefaultButton>
+                                )}
+                            </section>
                         </PivotItem>
-                        <PivotItem headerText="Office UI Fabric Icons">
-                            <Label styles={labelStyles}></Label>
-                        </PivotItem>
-                </Pivot>         
+                </Pivot>
+                <Dialog
+                      hidden={isModalClosed}
+                      onDismiss={() => setModalClosed(true)}
+                      dialogContentProps={{ showCloseButton: true, type: DialogType.close }}
+                      title={`${modalIcon?.iconName}`}
+                      maxWidth="480px"
+                      minWidth="480px"
+                >   
+                    <div style={{ width:"100%", height:"100%" , display:"flex",gap:10}}>
+                        <Icon iconName={modalIcon?.iconName} style={{fontSize:100}}/>
+                        <div>
+                            <Label style={{ padding: "4px 0" }}>
+                                {`HTML code`}
+                            </Label>
+                            <Stack style={{border:"0.5px solid rgb(242, 243, 244)"}}>
+                                <SyntaxHighlighter language="typescript" style={tomorrow}>
+                                    {`<i class="${modalIcon?.iconName}"></i>`}
+                                </SyntaxHighlighter>
+                            </Stack>
+                            <Label style={{ padding: "4px 0" }}>
+                                {`React code`}
+                            </Label>
+                            <Stack style={{border:"0.5px solid rgb(242, 243, 244)"}}>
+                                <SyntaxHighlighter language="typescript" style={tomorrow}>
+                                    {`<Icon iconName="${modalIcon?.iconName}" />`}
+                                </SyntaxHighlighter>
+                            </Stack>
+                        </div>
+                    </div>
+                </Dialog>         
             </article>
         </section>
     </section>

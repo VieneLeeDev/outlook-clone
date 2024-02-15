@@ -11,8 +11,14 @@
   },
   "dependencies": {
     "@gui/fluent-ui-allure": "^1.11.2",
+    "@reduxjs/toolkit": "^2.2.0",
+    "i18next": "^23.8.2",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-http-backend": "^2.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.0.5",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.70.0"

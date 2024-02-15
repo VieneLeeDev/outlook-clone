@@ -1,6 +1,6 @@
 import { AccordionItem, Label} from '@gui/fluent-ui-allure'
 import VersionLog from '../../components/VersionLog'
-import '../../styles/pagestyle/changelog.scss'
+import './changelog.scss'
 import DetailChangeLog from '../../components/DetailChangeLog'
 const Changelog = () => {
     return <section className='container__changelog'>

@@ -1,4 +1,4 @@
-import '../../styles/pagestyle/button.scss'
+import './button.scss'
 import CodeExample from '../../components/CodeExample'
 import { Stack, DefaultButton, PrimaryButton, Link, TextButton, DashedButton, TooltipHost, Toggle, IconButton, IContextualMenuProps } from "@gui/fluent-ui-allure";
 import CodeBlock from '../../components/CodeBlock';

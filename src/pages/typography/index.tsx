@@ -1,8 +1,7 @@
 import './typography.scss'
-import * as React from "react";
 import {  Stack, Text, SecondaryText, HeadingText, PageHeaderText, HeadingType } from "@gui/fluent-ui-allure";
 import CodeExample from "../../components/CodeExample"
-import CodeBlock from "../../components/CodeBlock"
+import CodeBlock from '../../components/CodeBlock';
 const Typography = () => {
     const codeFontAwesome = <CodeBlock>
     {`import * as React from "react";

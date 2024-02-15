@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
         },
         {
             path:"design-principle",
-            element: <DesignPrinciple/>
+            element: <DesignPrinciple/>,
         },
         {
             path:"change-log",

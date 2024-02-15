@@ -1,4 +1,4 @@
-import "../../styles/pagestyle/designprinciple.scss"
+import "./designprinciple.scss"
 import DesignRulesBlock from '../../components/DesignRulesBlock'
 import Useful from '../../assets/cup.svg'
 import Usable from '../../assets/like.svg'
