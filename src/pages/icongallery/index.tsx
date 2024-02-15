@@ -27,7 +27,6 @@ const Icongallery = () => {
             setIconAllureFont(newArrayIconAllure)
             setIconAwesomeFont(newArrayIconAwesome)
             setIconOfficeFont(newArrayIconOffice)
-
         }
     },[iconSearch])
 

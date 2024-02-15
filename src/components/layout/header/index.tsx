@@ -90,7 +90,7 @@ const Header = () => {
                             styles={buttonStyle}
                             onClick={() => {
                                 setSelectedKeyLanguages(option?.data?.type === "Clear" ? undefined : option?.key.toString());
-                                option && dispatch(applyLanguage(option.key.toString()))
+                                option && dispatch(applyLanguage(`${option.key}`))
                                 option && setKeyLanguages(option.key.toString());
                             }}
                         >
