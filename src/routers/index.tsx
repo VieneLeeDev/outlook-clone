@@ -138,10 +138,6 @@ export const routes = [
             path:"#",
             name:"Wizard",
         },
-        {
-            path:"typography",
-            name:"Typography",
-        },
     ]
 },
 {
