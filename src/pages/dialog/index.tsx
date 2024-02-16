@@ -4,6 +4,7 @@ import CodeBlock from '../../components/CodeBlock'
 import CodeExample from '../../components/CodeExample'
 import './dialog.scss'
 const DialogPages = () => {
+    //
     const [isDialogClosed, setDialogClosed] = React.useState(true);
     const codebasic =  <CodeBlock>
     {`import * as React from "react";
