@@ -28,6 +28,11 @@
             color: #646cff;
         }
        }
+       .link {
+        &--active {
+            color: #646cff;
+        }
+       }
     }
     }
     &:hover {

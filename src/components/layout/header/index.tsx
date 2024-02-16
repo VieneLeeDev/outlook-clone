@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { applyLanguage, applyTheme } from '../../../store/slice/allureSlice';
 import { useTranslation} from "react-i18next";
 import { allureSelector } from '../../../store/selector/allureSelector';
+import { routes } from '../../../routers';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const dropdownStyles: Partial<IDropdownStyles> = { dropdown: { width: "280px !important" } };
 const buttonStyle: IButtonStyles = {
@@ -55,7 +57,8 @@ const Header = () => {
     const [keyLanguages, setKeyLanguages] = React.useState<string>(optionsLanguages[0].key);
     const [selectedKeyTheme, setSelectedKeyTheme] = React.useState<string>();
     const [keyThemes, setKeyThemes] = React.useState<number>(new Date().getTime());
-
+    const [searchRoute, setSearchRoute] = React.useState<string>('')
+    const [isFoundRoute,setIsFoundRoute] = React.useState<boolean>(false)
     const style: React.CSSProperties = { letterSpacing: "-0.21px", color: palette.slate, textAlign: "left", fontWeight: "normal" };
 
     const dispatch = useDispatch()
@@ -65,19 +68,41 @@ const Header = () => {
     React.useEffect(() => {
         i18n.changeLanguage(currentLanguage.languages)
     },[selectedKeyLanguages])
-    
+
+    const navigate = useNavigate();
+    //search route and navigate in header
+    React.useEffect(() => {
+        //check input is empty?
+        if(searchRoute !== "") {
+            //it is not empty mean user want to search 
+            //find the route parent first
+            const getObjectRoute = routes.find((parentRoute) => {
+                return parentRoute.children.find((route) => route.name === searchRoute)
+            })
+            //find exactly chidren route and navigate to this route
+           if(getObjectRoute) {
+               const pathNameSearch = getObjectRoute.children.find((route) => route.name === searchRoute)?.path
+               pathNameSearch && navigate(pathNameSearch)
+           }
+        }
+    },[searchRoute])
+
+    const handleSearchRoute = (e) => {
+        setSearchRoute(e.target.value)
+    }
+
     return <section className='container__header'>
-    <div className='container__header__logo'>
+        <div className='container__header__logo'>
             <span className='container__header__logo__main'>
                 <img src={logo} alt='Logo Allure'/>
                 <span>Allure UI</span>
             </span>
             <Stack tokens={{ childrenGap: 20 }}>
-                <SearchBox styles={searchBoxStyles} showIcon placeholder={`${t('textInputSearch')}`} />
+                <SearchBox styles={searchBoxStyles} showIcon placeholder={`${t('textInputSearch')}`} onChange={handleSearchRoute}/>
             </Stack>
-    </div>
-    <Stack horizontal tokens={{ childrenGap: 16 }}>
-        <Stack horizontal>
+        </div>
+        <Stack horizontal tokens={{ childrenGap: 16 }}>
+            <Stack horizontal>
             <Dropdown
                 options={optionsLanguages}
                 defaultSelectedKey={optionsLanguages[0].key}
@@ -89,9 +114,9 @@ const Header = () => {
                         <DefaultButton
                             styles={buttonStyle}
                             onClick={() => {
-                                setSelectedKeyLanguages(option?.data?.type === "Clear" ? undefined : option?.key.toString());
+                                setSelectedKeyLanguages(option?.data?.type === "Clear" ? undefined : `${option?.key}`);
                                 option && dispatch(applyLanguage(`${option.key}`))
-                                option && setKeyLanguages(option.key.toString());
+                                option && setKeyLanguages(`${option.key}`);
                             }}
                         >
                             <div style={{ ...style, fontStyle: option?.data?.type === "Clear" ? "italic" : "normal" }}>{option?.text}</div>
@@ -99,7 +124,7 @@ const Header = () => {
                     </div>
                 )}
             />
-        </Stack>
+            </Stack>
         <Stack horizontal>
             <Dropdown
                 options={optionsThemes}
@@ -123,7 +148,7 @@ const Header = () => {
                 )}
             />
         </Stack>
-    </Stack>
+        </Stack>
     </section>
 }
 export default Header
