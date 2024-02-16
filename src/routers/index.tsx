@@ -10,6 +10,7 @@ import CommonTerm from "../pages/common-terms";
 import CommonProduct from "../pages/commonproduct";
 import Typography from "../pages/typography";
 import BreadCrumb from "../pages/breadcrumb";
+import DialogPages from "../pages/dialog";
 
 export const router = createBrowserRouter([
     {   path:'/',
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
         {
             path:"breadcrumb",
             element: <BreadCrumb/>
+        },
+        {
+            path:"dialog",
+            element: <DialogPages/>
         },
     ]
 }
@@ -238,7 +243,7 @@ export const routes = [
     parent:"Others",
     children: [
         {
-            path:"#",
+            path:"dialog",
             name:"Dialog",
         },
         {

@@ -1,0 +1,31 @@
+@use "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.dialog__container {
+    @include fullEmptyPlace;
+    &__content__title{
+            display: flex;
+            flex-flow: column;
+            width: auto;
+            height: auto;
+            box-sizing: border-box;
+            margin-top: 30px;
+            margin-bottom: 8px;
+            &--maintitle {
+               @include styleTitlePage
+            }
+            &--subtitle {
+                @include subTitle 
+             }
+            &--descriptiontitle {
+                color: rgb(50, 62, 77);
+            }
+            &--tag{
+                text-decoration: underline;
+                margin: 10px 0;
+            }
+            ol li {
+                margin: 10px 0;
+            }
+    }
+}
