@@ -273,3 +273,50 @@ export const routes = [
     ]
 },
 ]
+
+export const keywordForRoute = [
+    {
+        key:"introduction",
+        text:"Introduction"
+    },
+    {
+        key:"design principle",
+        text:"design-principle"
+    },
+    {
+        key:"change log",
+        text:"Changelog"
+    },
+    {
+        key:"button",
+        text:"Button"
+    },
+    {
+        key:"icon_gallery",
+        text:"Icongallery"
+    },
+    {
+        key:"icon",
+        text:"Icon"
+    },
+    {
+        key:"common i18n terms",
+        text:"CommonTerm"
+    },
+    {
+        key:"typography",
+        text:"Typography"
+    },
+    {
+        key:"common product",
+        text:"CommonProduct"
+    },
+    {
+        key:"breadcrumb",
+        text:"Breadcrumb"
+    },
+    {
+        key:"dialog",
+        text:"DialogPages"
+    },
+]

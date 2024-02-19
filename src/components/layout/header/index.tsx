@@ -1,13 +1,13 @@
 import './header.scss'
 import logo from '../../../assets/logo.png'
 import * as React from "react";
-import { Stack, Dropdown, ISearchBoxStyles, SearchBox,  IDropdownStyles, useTheme, IExtendedPalette, DefaultButton, IButtonStyles } from "@gui/fluent-ui-allure";
+import { Stack, Dropdown, ISearchBoxStyles,  IDropdownStyles, useTheme, IExtendedPalette, DefaultButton, IButtonStyles ,AutoComplete  } from "@gui/fluent-ui-allure";
 import { useDispatch, useSelector } from 'react-redux';
 import { applyLanguage, applyTheme } from '../../../store/slice/allureSlice';
 import { useTranslation} from "react-i18next";
 import { allureSelector } from '../../../store/selector/allureSelector';
-import { routes } from '../../../routers';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { keywordForRoute } from '../../../routers';
+import { useNavigate } from 'react-router-dom';
 
 const dropdownStyles: Partial<IDropdownStyles> = { dropdown: { width: "280px !important" } };
 const buttonStyle: IButtonStyles = {
@@ -34,7 +34,6 @@ const buttonStyle: IButtonStyles = {
 };
 
 
-
 export const optionsLanguages = [
     { text: "English", key: "en" },
     { text: "Japanese", key: "jp" },
@@ -51,44 +50,27 @@ const optionsThemes = [
 ];
 
 const Header = () => {
-    const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { height: 32 }, box: { width: 240 } };
-    const palette = useTheme().palette as IExtendedPalette;
     const [selectedKeyLanguages, setSelectedKeyLanguages] = React.useState<string>();
     const [keyLanguages, setKeyLanguages] = React.useState<string>(optionsLanguages[0].key);
     const [selectedKeyTheme, setSelectedKeyTheme] = React.useState<string>();
     const [keyThemes, setKeyThemes] = React.useState<number>(new Date().getTime());
-    const [searchRoute, setSearchRoute] = React.useState<string>('')
-    const [isFoundRoute,setIsFoundRoute] = React.useState<boolean>(false)
-    const style: React.CSSProperties = { letterSpacing: "-0.21px", color: palette.slate, textAlign: "left", fontWeight: "normal" };
-
-    const dispatch = useDispatch()
+    const [valueSearchRoute, setValueSearchRoute] = React.useState<string>();
     const currentLanguage = useSelector(allureSelector)
-    const { t,i18n } = useTranslation();
+
+    const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { height: 32,width: 240}};
+    const palette = useTheme().palette as IExtendedPalette;
+    const style: React.CSSProperties = { letterSpacing: "-0.21px", color: palette.slate, textAlign: "left", fontWeight: "normal" };
 
     React.useEffect(() => {
         i18n.changeLanguage(currentLanguage.languages)
     },[selectedKeyLanguages])
 
     const navigate = useNavigate();
-    //search route and navigate in header
-    React.useEffect(() => {
-        //check input is empty?
-        if(searchRoute !== "") {
-            //it is not empty mean user want to search 
-            //find the route parent first
-            const getObjectRoute = routes.find((parentRoute) => {
-                return parentRoute.children.find((route) => route.name === searchRoute)
-            })
-            //find exactly chidren route and navigate to this route
-           if(getObjectRoute) {
-               const pathNameSearch = getObjectRoute.children.find((route) => route.name === searchRoute)?.path
-               pathNameSearch && navigate(pathNameSearch)
-           }
-        }
-    },[searchRoute])
+    const dispatch = useDispatch()
+    const { t,i18n } = useTranslation();
 
     const handleSearchRoute = (e) => {
-        setSearchRoute(e.target.value)
+        navigate(e.key)
     }
 
     return <section className='container__header'>
@@ -98,7 +80,16 @@ const Header = () => {
                 <span>Allure UI</span>
             </span>
             <Stack tokens={{ childrenGap: 20 }}>
-                <SearchBox styles={searchBoxStyles} showIcon placeholder={`${t('textInputSearch')}`} onChange={handleSearchRoute}/>
+                <AutoComplete
+                styles={searchBoxStyles}
+                calloutWidth={240}
+                id={"ms-icon-complete"}
+                expanding={keywordForRoute}
+                placeholder={`${t('textInputSearch')}`}
+                value={valueSearchRoute}
+                onSelectedItem={handleSearchRoute}
+                onChange={(e, v) => setValueSearchRoute(v)}
+            />
             </Stack>
         </div>
         <Stack horizontal tokens={{ childrenGap: 16 }}>
@@ -137,7 +128,7 @@ const Header = () => {
                         <DefaultButton
                             styles={buttonStyle}
                             onClick={() => {
-                                setSelectedKeyTheme(option?.data?.type === "Clear" ? undefined : option?.key.toString());
+                                setSelectedKeyTheme(option?.data?.type === "Clear" ? undefined : `${option?.key}`);
                                 setKeyThemes(new Date().getTime());
                                 option && dispatch(applyTheme(Number(option.key)))
                             }}
