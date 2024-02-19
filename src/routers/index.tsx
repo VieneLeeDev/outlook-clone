@@ -277,46 +277,58 @@ export const routes = [
 export const keywordForRoute = [
     {
         key:"introduction",
-        text:"Introduction"
+        text:"Introduction",
+        path: ""
+
     },
     {
         key:"design principle",
-        text:"design-principle"
+        text:"design principle",
+        path: "design-principle"
     },
     {
         key:"change log",
-        text:"Changelog"
+        text:"Change log",
+        path: "Changelog"
     },
     {
         key:"button",
-        text:"Button"
+        text:"Button",
+        path: "Button"
     },
     {
         key:"icon_gallery",
-        text:"Icongallery"
+        text:"Icon gallery",
+        path: "Icongallery"
     },
     {
         key:"icon",
-        text:"Icon"
+        text:"Icon",
+        path: "Icon"
     },
     {
         key:"common i18n terms",
-        text:"CommonTerm"
+        text:"CommonTerm",
+        path:"CommonTerm"
     },
     {
         key:"typography",
-        text:"Typography"
+        text:"Typography",
+        path:"Typography"
     },
     {
         key:"common product",
-        text:"CommonProduct"
+        text:"CommonProduct",
+        path:"CommonProduct"
     },
     {
         key:"breadcrumb",
-        text:"Breadcrumb"
+        text:"Breadcrumb",
+        path:"Breadcrumb"
     },
     {
         key:"dialog",
-        text:"DialogPages"
+        text:"Dialog Pages",
+        path:"DialogPages"
     },
 ]

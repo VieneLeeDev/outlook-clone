@@ -70,7 +70,7 @@ const Header = () => {
     const { t,i18n } = useTranslation();
 
     const handleSearchRoute = (e) => {
-        navigate(e.key)
+        navigate(pathName)
     }
 
     return <section className='container__header'>
