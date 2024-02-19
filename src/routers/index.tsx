@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter, createHashRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import MainLayout from "../components/layout/MainLayout";
 import Introduction from "../pages/introduction";
 import DesignPrinciple from "../pages/designprinciple";
@@ -15,15 +15,12 @@ import DialogPages from "../pages/dialog";
 export const router = createHashRouter([
     {   path:'/',
         element:<MainLayout/>,
+
         children: [
         {
-            path: "",
-            element: <Navigate to={"introduction"}/>
+            index:true,
+            element: <Introduction/>
         },
-        // {
-        //     path: "",
-        //     element: <Introduction/>
-        // },
         {
             path: "introduction",
             element: <Introduction/>
@@ -286,7 +283,7 @@ export const keywordForRoute = [
     {
         key:"introduction",
         text:"Introduction",
-        path: ""
+        path: "introduction"
 
     },
     {
