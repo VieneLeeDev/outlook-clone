@@ -3,7 +3,7 @@
 
 .dialog__container {
     @include fullEmptyPlace;
-    &__content__title{
+    .dialog__container__content__title{
             display: flex;
             flex-flow: column;
             width: auto;
@@ -11,16 +11,16 @@
             box-sizing: border-box;
             margin-top: 30px;
             margin-bottom: 8px;
-            &--maintitle {
+            .dialog__container__content__title--maintitle {
                @include styleTitlePage
             }
-            &--subtitle {
+            .dialog__container__content__title--subtitle {
                 @include subTitle 
              }
-            &--descriptiontitle {
+            .dialog__container__content__title--descriptiontitle {
                 color: rgb(50, 62, 77);
             }
-            &--tag{
+            .dialog__container__content__title--tag{
                 text-decoration: underline;
                 margin: 10px 0;
             }

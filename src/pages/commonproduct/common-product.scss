@@ -3,17 +3,17 @@
 
 .commonproduct{
     @include fullEmptyPlace;
-        &__content{
-            &__title {
+        .commonproduct__content{
+            .commonproduct__content__title {
                 display: flex;
                 flex-flow: column;
                 width: auto;
                 height: auto;
                 box-sizing: border-box;
-                &--maintitle {
+                .commonproduct__content__title--maintitle {
                    @include styleTitlePage
                 }
-                &--subtitle {
+                .commonproduct__content__title--subtitle {
                     @include subTitle 
                  }
             }

@@ -78,7 +78,7 @@ export const routes = [
         },
         {
             path:"https://xd.adobe.com/view/34543319-c6da-4dd9-be05-fe7b01ae133b-6107/",
-            name:"Design principle",
+            name:"Design standard",
         },
         {
             path:"change-log",

@@ -3,7 +3,7 @@
 .container__mainlayout{
     width: 100vw;
     height: 100vh;
-    &__content {
+    .container__mainlayout__content {
         width: 100%;
         height: calc(100% - $height-header);
         display: flex;

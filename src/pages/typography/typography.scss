@@ -3,8 +3,8 @@
 
 .typography{
     @include fullEmptyPlace;
-        &__content{
-            &__title {
+        .typography__content{
+            .typography__content__title {
                 display: flex;
                 flex-flow: column;
                 width: auto;
@@ -15,10 +15,10 @@
                 a {
                     text-decoration: underline;
                 }
-                &--maintitle {
+                .typography__content__title--maintitle {
                    @include styleTitlePage
                 }
-                &--subtitle {
+                .typography__content__title--subtitle {
                     @include subTitle 
                  }
             }

@@ -5,13 +5,13 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    &__content__title {
-        &--maintitle {
+    .container__designprinciple__content__title {
+        .container__designprinciple__content__title--maintitle {
                 font-weight: 400;
                 font-size: 32px;
                 color: rgb(23, 29, 36)
         }
-        &__maincontent {
+        .container__designprinciple__content__title__maincontent {
             width: 100%;
             height: 100%;
         }

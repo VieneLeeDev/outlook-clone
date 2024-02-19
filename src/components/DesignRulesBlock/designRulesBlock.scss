@@ -8,7 +8,7 @@
     height: auto;
     padding: 28px;
     border: 1px solid rgb(242, 243, 244);
-    &__icon {
+    .container__design__rule__icon {
         height: 40px;
         width: 40px;
         img {
@@ -16,20 +16,19 @@
             height: 100%;
         }
     }
-    &__content {
+    .container__design__rule__content {
         flex-grow: 1;
         height: 65px;
         margin-left: 16px;
         color: $rulesColor;
-        &__titlerules {
+        .container__design__rule__content__titlerules {
             display: block;
             font-size: $fontSizeRules;
             font-weight: $fontWeight-bold;
         }
-        &__maincontent {
+        .container__design__rule__content__maincontent {
             display: block;
             margin-top: 5px;
-
         }
     }
 }

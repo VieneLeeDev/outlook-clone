@@ -9,13 +9,13 @@
     padding: 0 15px;
     justify-content: space-between;
     border: 1px solid rgb(242, 243, 244);
-    &__logo {
+    .container__header__logo {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 50px;
         width: 500px;
-        &__main {
+        .container__header__logo__main {
             display: flex;
             align-items: center;
             font-size: 24px;

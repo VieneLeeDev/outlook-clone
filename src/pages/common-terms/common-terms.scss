@@ -3,8 +3,8 @@
 
 .commonterms{
     @include fullEmptyPlace;
-        &__content{
-            &__title {
+        .commonterms__content{
+            .commonterms__content__title {
                 display: flex;
                 flex-flow: column;
                 width: auto;
@@ -15,13 +15,13 @@
                 a {
                     text-decoration: underline;
                 }
-                &--maintitle {
+                .commonterms__content__title--maintitle {
                    @include styleTitlePage
                 }
-                &--subtitle {
+                .commonterms__content__title--subtitle {
                     @include subTitle 
                  }
-                &--descriptiontitle {
+                .commonterms__content__title--descriptiontitle {
                     color: rgb(50, 62, 77);
                 }
             }

@@ -2,7 +2,7 @@
 @import "../../styles/utils/mixins";
 .container__changelog {
     @include fullEmptyPlace;
-    &__title {
+    .container__changelog__title {
         @include styleTitlePage;
     }
 }

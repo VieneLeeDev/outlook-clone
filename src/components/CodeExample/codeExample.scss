@@ -4,7 +4,7 @@
 
 .container__component__custome {
     border: 1px solid $border-color;
-    &__items {
+    .container__component__custome__items {
         padding: 10px;
         display: flex;
         justify-items: center;
@@ -12,7 +12,7 @@
         width: 100%;
         min-height: 100px;
     }
-    &__code {
+    .container__component__custome__code {
         max-width: 100%;
     }
     .togglebtn {
@@ -26,7 +26,7 @@
         &:hover{
         background-color: $openCodeBackGrounds;
         }
-        &__icon {
+        .togglebtn__icon {
             width: 16px;
             height: 16px;
             object-fit: cover;

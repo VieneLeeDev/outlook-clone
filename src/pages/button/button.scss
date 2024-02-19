@@ -3,13 +3,13 @@
 
 .container__button {
     @include fullEmptyPlace;
-    &__content{ 
-        &__title{
+    .container__button__content{ 
+        .container__button__content__title{
             margin-bottom: 30px;
-            &--maintitle{
+            .container__button__content__title--maintitle{
                 @include styleTitlePage
             }
-            &--subtitle{
+            .container__button__content__title--subtitle{
                 @include subTitle
             }
             ul {

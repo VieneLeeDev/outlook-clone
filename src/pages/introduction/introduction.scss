@@ -11,7 +11,7 @@
         object-fit: cover;
     }
     .container__introduction__content {
-        &__title {
+        .container__introduction__content__title {
             display: flex;
             flex-flow: column;
             width: auto;
@@ -19,19 +19,19 @@
             box-sizing: border-box;
             margin-top: 40px;
             margin-bottom: 8px;
-            &--maintitle {
+            .container__introduction__content__title--maintitle {
                @include styleTitlePage
             }
-            &--subtitle {
+            .container__introduction__content__title--subtitle {
                 @include subTitle 
              }
-            &--descriptiontitle {
+            .container__introduction__content__title--descriptiontitle {
                 color: rgb(50, 62, 77);
             }
             a {
                 text-decoration: underline;
             }
-            &__browsersupport {
+            .container__introduction__content__title__browsersupport {
                 width: 100%;
                 border-collapse: collapse;
                 table-layout: fixed;
@@ -40,12 +40,12 @@
                     border: 1px solid rgb(242, 243, 244);
                     border-collapse: collapse;
                     padding: 8px;
-                    &__logo {
+                    .item__browser__logo{
                         width: 32px;
                         height: 32px;
                         object-fit: cover;
                     }
-                    &__name {
+                    .item__browser__name {
                         display: block;
                         margin-top: 5px;
                         font-size: 14px;

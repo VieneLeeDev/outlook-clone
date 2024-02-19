@@ -3,8 +3,8 @@
 
 .icon{
     @include fullEmptyPlace;
-        &__content{
-            &__title {
+        .icon__content{
+            .icon__content__title {
                 display: flex;
                 flex-flow: column;
                 width: auto;
@@ -15,10 +15,10 @@
                 a {
                     text-decoration: underline;
                 }
-                &--maintitle {
+                .icon__content__title--maintitle {
                    @include styleTitlePage
                 }
-                &--subtitle {
+                .icon__content__title--subtitle {
                     @include subTitle 
                  }
             }

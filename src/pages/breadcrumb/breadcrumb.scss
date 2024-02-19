@@ -3,8 +3,8 @@
 
 .breadcrumb{
     @include fullEmptyPlace;
-        &__content{
-            &__title {
+        .breadcrumb__content{
+            .breadcrumb__content__title {
                 display: flex;
                 flex-flow: column;
                 width: auto;
@@ -15,13 +15,13 @@
                 a {
                     text-decoration: underline;
                 }
-                &--maintitle {
+                .breadcrumb__content__title {
                    @include styleTitlePage
                 }
-                &--subtitle {
+                .breadcrumb__content__title--subtitle {
                     @include subTitle 
                  }
-                &--descriptiontitle {
+                .breadcrumb__content__title--descriptiontitle {
                     color: rgb(50, 62, 77);
                 }
                 ul {

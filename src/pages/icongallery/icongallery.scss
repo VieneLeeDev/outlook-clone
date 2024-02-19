@@ -2,7 +2,7 @@
 @import "../../styles/utils/mixins";
 .icongallery{
     .content {
-        &__title {
+        .content__title {
             display: flex;
             flex-flow: column;
             width: auto;
@@ -10,21 +10,21 @@
             box-sizing: border-box;
             margin-top: 40px;
             margin-bottom: 8px;
-            &--maintitle {
+            .content__title--maintitle {
                @include styleTitlePage
             }
-            &--subtitle {
+            .content__title--subtitle {
                 @include subTitle 
              }
-            &--descriptiontitle {
+            .content__title--descriptiontitle {
                 color: rgb(50, 62, 77);
             }
-            &__listitem {
+            .content__title__listitem {
                 display: grid;
                 grid-template-columns: repeat(6,1fr);
                 gap: 2.5px;
             }
-            &__modal {
+            .content__title__modal {
                 display: flex;
                 width: 100%;
                 background-color: red;
