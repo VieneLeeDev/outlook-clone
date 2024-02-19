@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter, createHashRouter } from "react-router-dom";
 import MainLayout from "../components/layout/MainLayout";
 import Introduction from "../pages/introduction";
 import DesignPrinciple from "../pages/designprinciple";
@@ -12,12 +12,20 @@ import Typography from "../pages/typography";
 import BreadCrumb from "../pages/breadcrumb";
 import DialogPages from "../pages/dialog";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     {   path:'/',
         element:<MainLayout/>,
-        children: [{
-            index:true,
-            path:"",
+        children: [
+        {
+            path: "",
+            element: <Navigate to={"introduction"}/>
+        },
+        // {
+        //     path: "",
+        //     element: <Introduction/>
+        // },
+        {
+            path: "introduction",
             element: <Introduction/>
         },
         {
@@ -61,7 +69,7 @@ export const router = createBrowserRouter([
             element: <DialogPages/>
         },
     ]
-}
+    }
 ])
 
 export const routes = [
@@ -69,7 +77,7 @@ export const routes = [
     parent:"Allure DeSign System",
     children: [
         {
-            path:"/",
+            path:"introduction",
             name:"Introduction",
         },
         {
@@ -328,7 +336,7 @@ export const keywordForRoute = [
     },
     {
         key:"dialog",
-        text:"Dialog Pages",
+        text:"Dialog",
         path:"DialogPages"
     },
 ]
